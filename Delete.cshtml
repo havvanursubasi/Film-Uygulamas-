@@ -1,0 +1,51 @@
+@model film.Models.Film
+
+@{
+    ViewData["Title"] = "Film Sil";
+}
+
+<h1>Film Sil</h1>
+
+<div class="alert alert-danger">
+    <h4>Bu filmi silmek istediğinizden emin misiniz?</h4>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FilmAdi)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.FilmAdi)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Yonetmen)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Yonetmen)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CikisYili)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.CikisYili)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FilmTuru)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.FilmTuru)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IMDBPuani)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.IMDBPuani)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Izlendimi)</dt>
+            <dd class="col-sm-9">
+                @if (Model.Izlendimi)
+                {
+                    <span class="text-success">✓ Evet</span>
+                }
+                else
+                {
+                    <span class="text-danger">✗ Hayır</span>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+        </form>
+    </div>
+</div> 
